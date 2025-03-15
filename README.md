@@ -1,2 +1,5 @@
-# AR.jsWebTest
-Testing if I can host an AR.js webapp with github pages
+# AR.js simple web app
+
+Display videos over still images in AR using AR.js through a simple web app deployed with github pages. 
+
+Should take into consideration the limitations of github pages (no cross origin fetching, etc.) and keep it as simple as possible.
