@@ -8,17 +8,29 @@
         AFRAME.registerComponent('videohandler', {
             init: function () {
                 var marker = this.el;
-
                 this.vid = document.querySelector("#vid");
 
+                // Add error handling for video loading
+                this.vid.addEventListener('error', function(e) {
+                    console.error("Error loading video:", e);
+                });
+
                 marker.addEventListener('markerFound', function () {
-                    this.vid.play();
+                    // Check if video is ready to play
+                    if (this.vid.readyState >= 2) {
+                        this.vid.play()
+                            .catch(function(error) {
+                                console.error("Error playing video:", error);
+                            });
+                    } else {
+                        console.log("Video not ready yet");
+                    }
                 }.bind(this));
 
-		marker.addEventListener('markerLost', function() {
-			this.vid.pause();
-			this.vid.currentTime = 0;
-		}.bind(this));
+                marker.addEventListener('markerLost', function() {
+                    this.vid.pause();
+                    this.vid.currentTime = 0;
+                }.bind(this));
             }
         });
     };
@@ -55,9 +67,15 @@
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <a-assets>
-            <video src="./AR.jsWebTest/videos/mov_bbb.mp4"
-                preload="auto" id="vid" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline>
+            <video src="videos/mov_bbb.mp4"
+                preload="auto" 
+                id="vid" 
+                response-type="arraybuffer" 
+                loop
+                crossorigin="anonymous"
+                webkit-playsinline 
+                playsinline
+                muted>
             </video>
         </a-assets>
 
