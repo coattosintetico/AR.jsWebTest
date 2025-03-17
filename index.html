@@ -6,8 +6,14 @@
         AFRAME.registerComponent('videohandler', {
             init: function () {
                 var marker = this.el;
-
                 this.vid = document.querySelector("#vid");
+
+                // Log the marker size
+                console.log("Marker size:", marker.getAttribute('artoolkitmarker').size);
+                // Or try accessing it directly
+                console.log("Marker component:", marker.components.artoolkitmarker);
+                console.log("Marker element:", marker);
+                console.log("Marker components:", marker.components);
 
                 marker.addEventListener('markerFound', function () {
                     this.vid.play();
