@@ -18,3 +18,4 @@ Where I left:
 - [Video example](https://github.com/AR-js-org/AR.js/blob/master/aframe/examples/image-tracking/nft-video/index.html)
 - [The marker creator web tool](https://carnaux.github.io/NFT-Marker-Creator/#/)
     - [Creating good markers documentation](https://github.com/Carnaux/NFT-Marker-Creator/wiki/Creating-good-markers)
+- [The answer that explains the new repo that solves the issue I'm encountering](https://stackoverflow.com/a/69522724)
