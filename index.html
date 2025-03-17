@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/aframe@1.6.0/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 
 <script>
     window.onload = function() {
@@ -45,7 +45,7 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <div class="arjs-loader">
-        <div>LOADING...</div>
+        <div>Loading, please wait...</div>
     </div>
     <a-scene
         vr-mode-ui="enabled: false;"
@@ -53,27 +53,20 @@
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <a-assets>
-            <video src="videos/sunset_ar.mp4"
-                preload="auto" 
-                id="vid" 
-                response-type="arraybuffer" 
-                loop
-                crossorigin="anonymous"
-                webkit-playsinline 
-                playsinline
-                muted>
+            <video src="videos/mov_bbb.mp4"
+                preload="auto" id="vid" response-type="arraybuffer" loop
+                crossorigin webkit-playsinline autoplay muted playsinline>
             </video>
         </a-assets>
 
         <a-nft
             videohandler
-            type='nft'
-            url='./AR.jsWebTest/markers/sunset'
+            type='nft' url='./AR.jsWebTest/markers/pinball'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
             <a-video
                 src="#vid"
-                position='0 150 -100'
+                position='50 150 -100'
                 rotation='90 0 180'
                 width='300'
                 height='175'
